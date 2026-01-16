@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: #0f1115;
+  color: #e6e9ef;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
