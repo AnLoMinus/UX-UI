@@ -1,4 +1,4 @@
-# 🎛️ UIUX-CraftVault
+# UIUX-CraftVault
 
 **Crafting Interfaces. Shaping Experiences.**
 
@@ -94,17 +94,14 @@ UIUX-CraftVault/
 
 לכל Collection יש:
 
-* 📘 `_identity.md` — DNA עיצובי וחוקי UI
-* 🧩 `_starter/` — שלד בסיסי לשכפול
-* 📦 `templates/` — תבניות מוכנות
+1. שיבטו את המאגר.
+2. פתחו את `index.html` בדפדפן כדי לראות את אתר הבית והמסמכים המרכזיים.
+3. עברו לתיקיות האוספים (כשתתווספנה) או לתיעוד הקצר להתחלה מהירה.
 
-### דוגמה:
-
-```
-collections/uiux-forge/
-├─ _identity.md
-├─ _starter/
-└─ templates/
+```bash
+git clone <repo-url>
+cd UIUX-CraftVault
+open index.html
 ```
 
 ---
@@ -142,8 +139,8 @@ collections/uiux-forge/
 
 ## 🧩 תקן תבניות
 
-כל Template יושב ב:
-`collections/<collection>/templates/<template-id>/`
+* **הסכמות שמיות:** כל אוסף כולל `_identity.md`, תיקיית `_starter`, ותבניות תחת `templates/`.
+* **מבנה תבנית בסיסי:**
 
 ```
 index.html
@@ -170,8 +167,16 @@ preview.png
 
 ## 🌐 קטלוג חי (Docs)
 
-הקטלוג (`docs/`) מציג תבניות נבחרות בלבד —
-שליטה מלאה במה ציבורי ומה ניסיוני.
+* אתר הבית (Root): `index.html`
+* `CHANGELOG.md`
+* `ROADMAP.md`
+* `CONTRIBUTING.md`
+* `CODE_OF_CONDUCT.md`
+* `SECURITY.md`
+* `SUPPORT.md`
+* `GOVERNANCE.md`
+* `RELEASING.md`
+* `LICENSE`
 
 ---
 
@@ -196,4 +201,4 @@ preview.png
 
 ---
 
-**AnLoMinus — Crafting Systems with Meaning**
+המאגר נמצא בהקמה. מוזמנים לפתוח Issues או להציע כיווני פיתוח.
