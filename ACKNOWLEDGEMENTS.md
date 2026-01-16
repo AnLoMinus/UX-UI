@@ -1,6 +1,6 @@
-# Acknowledgements
+# הוקרות ותודות
 
 תודה לקהילת העיצוב ולחברי הקוד הפתוח שמאפשרים ללמוד, לשתף ולהתרחב.
 
-- Contributor Covenant for community guidelines.
-- Keep a Changelog for release documentation structure.
+- Contributor Covenant עבור הנחיות קהילה.
+- Keep a Changelog עבור מבנה תיעוד גרסאות.

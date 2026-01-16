@@ -1,20 +1,20 @@
-# Support
+# תמיכה
 
-## How to Get Help
-- Open a GitHub Issue with a clear description of the problem.
-- For security concerns, follow SECURITY.md.
-- For collaboration or community questions, contact support@uiux-craftvault.org.
+## איך מקבלים עזרה
+- פתחו Issue ב־GitHub עם תיאור ברור של הבעיה.
+- לנושאי אבטחה פעלו לפי SECURITY.md.
+- לשאלות קהילה ושיתופי פעולה: support@uiux-craftvault.org.
 
-## FAQ
+## שאלות נפוצות
 
-**Q: How do I add a new template?**
-A: Create a new folder under the appropriate collection in `collections/<collection>/templates/` and include the standard files (HTML/CSS/JS/meta/README/preview).
+**ש: איך מוסיפים תבנית חדשה?**
+ת: צרו תיקייה חדשה תחת `collections/<collection>/templates/` עם הקבצים הסטנדרטיים (HTML/CSS/JS/meta/README/preview).
 
-**Q: Can I use these templates commercially?**
-A: Yes. The project is licensed under MIT. See LICENSE.
+**ש: האם ניתן להשתמש בתבניות מסחרית?**
+ת: כן. הפרויקט תחת רישיון MIT. ראו LICENSE.
 
-**Q: Do you accept design contributions?**
-A: Absolutely. Add a short rationale and design rules inside `_identity.md` for your collection.
+**ש: האם אתם מקבלים תרומות עיצוב?**
+ת: כן. הוסיפו רציונל וכללי עיצוב בתוך `_identity.md` של האוסף.
 
-## Response Times
-We aim to respond within 3–5 business days.
+## זמני תגובה
+אנו משתדלים לחזור תוך 3–5 ימי עסקים.

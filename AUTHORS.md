@@ -1,3 +1,3 @@
-# Authors
+# מחברים
 
-- AnLoMinus — Initiator & Maintainer
+- AnLoMinus — יוזם ומתחזק

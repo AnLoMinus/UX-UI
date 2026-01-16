@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 title: UIUX-CraftVault
 type: software
-message: "If you use this project, please cite it."
+message: "אם השתמשתם בפרויקט הזה, אנא צטטו אותו."
 version: 0.1.0
 date-released: 2026-01-16
 authors:
   - name: AnLoMinus
     email: hello@uiux-craftvault.org
-repository-code: https://github.com/example/uiux-craftvault
+repository-code: https://github.com/AnLoMinus/UX-UI
 license: MIT
 keywords:
   - ui

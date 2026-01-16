@@ -1,48 +1,44 @@
-# Code of Conduct
+# קוד התנהגות
 
-## Our Pledge
-We pledge to make participation in our community a harassment-free experience for everyone,
-regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics,
-gender identity and expression, level of experience, education, socio-economic status, nationality,
-personal appearance, race, caste, color, religion, or sexual identity and orientation.
+## ההתחייבות שלנו
+אנו מתחייבים להפוך את ההשתתפות בקהילה לחוויה נקייה מהטרדה עבור כולם,
+ללא קשר לגיל, מבנה גוף, מוגבלות גלויה או סמויה, מוצא אתני, מאפייני מין,
+זהות וביטוי מגדרי, רמת ניסיון, השכלה, מצב סוציו־אקונומי, לאום, מראה אישי,
+גזע, קאסטה, צבע, דת או נטייה מינית.
 
-## Our Standards
-Examples of behavior that contributes to a positive environment include:
-- Demonstrating empathy and kindness toward other people.
-- Giving and gracefully accepting constructive feedback.
-- Accepting responsibility and apologizing to those affected by our mistakes.
-- Focusing on what is best for the community.
+## הסטנדרטים שלנו
+דוגמאות להתנהגות חיובית:
+- הפגנת אמפתיה ואדיבות כלפי אחרים.
+- מתן וקבלה של משוב בונה.
+- לקיחת אחריות והתנצלות על טעויות.
+- התמקדות בטובת הקהילה.
 
-Examples of unacceptable behavior include:
-- The use of sexualized language or imagery, and sexual attention or advances.
-- Trolling, insulting or derogatory comments, and personal or political attacks.
-- Public or private harassment.
-- Publishing others' private information without explicit permission.
-- Other conduct which could reasonably be considered inappropriate in a professional setting.
+דוגמאות להתנהגות בלתי מתקבלת:
+- שימוש בשפה או בתוכן מיני, והטרדה מינית.
+- טרולינג, העלבות או תקיפות אישיות/פוליטיות.
+- הטרדה פומבית או פרטית.
+- פרסום מידע פרטי של אחרים ללא רשות מפורשת.
+- כל התנהגות שניתן לראותה כלא הולמת בסביבה מקצועית.
 
-## Enforcement Responsibilities
-Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior
-and will take appropriate and fair corrective action in response to any behavior they deem inappropriate,
-threatening, offensive, or harmful.
+## אחריות אכיפה
+מנהיגי הקהילה אחראים להבהרת הסטנדרטים ולאכיפתם, וינקטו בפעולות תיקון הוגנות
+ומידתיות בתגובה להתנהגות בלתי הולמת, מאיימת או פוגענית.
 
-## Scope
-This Code of Conduct applies within all community spaces, and also applies when an individual is
-officially representing the community in public spaces.
+## תחולה
+קוד זה חל בכל מרחבי הקהילה, וגם כאשר אדם מייצג את הקהילה במרחבים ציבוריים.
 
-## Enforcement
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community
-leaders responsible for enforcement at: conduct@uiux-craftvault.org. All complaints will be reviewed
-and investigated promptly and fairly.
+## אכיפה
+ניתן לדווח על התנהגות פוגענית או בלתי מקובלת לכתובת: conduct@uiux-craftvault.org.
+כל תלונה תיבדק ותטופל במהירות ובהוגנות.
 
-## Enforcement Guidelines
-Community leaders will follow these Community Impact Guidelines in determining the consequences for
-any action they deem in violation of this Code of Conduct:
+## מדרגות אכיפה
+המנהיגים יפעלו לפי מדרגות ההשפעה הבאות:
 
-1. **Correction** — A private, written warning providing clarity around the nature of the violation.
-2. **Warning** — A warning with consequences for continued behavior.
-3. **Temporary Ban** — A temporary ban from community interaction.
-4. **Permanent Ban** — A permanent ban from the community.
+1. **תיקון** — אזהרה כתובה פרטית שמבהירה את ההפרה.
+2. **אזהרה** — אזהרה עם השלכות להמשך.
+3. **הרחקה זמנית** — חסימה זמנית מהקהילה.
+4. **הרחקה קבועה** — חסימה מלאה מהקהילה.
 
-## Attribution
-This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/),
-version 2.1, available at https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.
+## ייחוס
+קוד זה מותאם מ־[Contributor Covenant](https://www.contributor-covenant.org/),
+גרסה 2.1: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.

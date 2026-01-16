@@ -1,30 +1,30 @@
-# Security Policy
+# מדיניות אבטחה
 
-## Supported Versions
+## גרסאות נתמכות
 
-| Version | Supported |
-| ------- | --------- |
-| 0.1.x   | ✅        |
-| <0.1.0  | ❌        |
+| גרסה | נתמך |
+| ---- | ----- |
+| 0.1.x | ✅ |
+| <0.1.0 | ❌ |
 
-## Reporting a Vulnerability
+## דיווח על חולשה
 
-If you discover a security issue, please report it responsibly:
+אם גיליתם בעיית אבטחה, אנא דווחו באופן אחראי:
 
-1. Email us at security@uiux-craftvault.org with details.
-2. Include steps to reproduce and potential impact.
-3. Do not open a public issue until the team confirms disclosure timing.
+1. שלחו מייל ל־security@uiux-craftvault.org עם הפרטים.
+2. צרפו שלבי שחזור והשפעה אפשרית.
+3. אל תפתחו Issue ציבורי לפני אישור צוות התחזוקה.
 
-## Response SLA
+## SLA תגובה
 
-| Stage | Target Response |
-| ----- | --------------- |
-| Initial response | 48 hours |
-| Triage & assessment | 5 business days |
-| Patch / mitigation | 14 business days |
+| שלב | יעד תגובה |
+| ---- | -------- |
+| תגובה ראשונית | 48 שעות |
+| טריאז' והערכה | 5 ימי עסקים |
+| תיקון/מזעור | 14 ימי עסקים |
 
-## Scope
-- Documentation site, templates, and build scripts.
-- Dependencies (if introduced in future iterations).
+## תחום
+- אתר התיעוד, תבניות וסקריפטים.
+- תלות חיצונית (אם תתווסף בעתיד).
 
-Thank you for helping keep the community safe.
+תודה שעוזרים לשמור על הקהילה בטוחה.

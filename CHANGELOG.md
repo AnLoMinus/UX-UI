@@ -1,18 +1,21 @@
-# Changelog
+# יומן שינויים
 
-All notable changes to this project will be documented in this file.
+כל שינוי משמעותי בפרויקט יתועד בקובץ זה.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+הפורמט מבוסס על [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+והפרויקט פועל לפי [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [לא פורסם]
 
-### Added
-- Project documentation framework and governance files.
-- Root landing page that aggregates documentation links.
+### נוסף
+- אתר בית עברי עם תפריט ניווט, מודל הצגת מסמכים ועמודים ייעודיים.
+- מנגנון רינדור קבצי Markdown להצגת מסמכים בחלון מודל.
+
+### שונה
+- תרגום מלא של כל מסמכי המאגר לעברית.
 
 ## [0.1.0] - 2026-01-16
 
-### Added
-- Initial repository vision, contribution flow, and support policy.
-- Base site scaffolding and release documentation.
+### נוסף
+- חזון ראשוני, תהליך תרומה ומדיניות תמיכה.
+- שלד אתר ותיעוד לשחרורי גרסאות.
