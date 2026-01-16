@@ -831,33 +831,865 @@
     ];
 
     const COLLECTIONS = [
-      { id:'uiux-craft', name:'UIUX-Craft', emoji:'🗄️', desc:'סגנון הליבה — איזון וברירת מחדל.', chips:['מאוזן','נקי','בסיס'] },
-      { id:'uiux-forge', name:'UIUX-Forge', emoji:'🔨', desc:'פאנלים תעשייתיים, צללים חזקים.', chips:['תעשייתי','פאנלים','צללים'] },
-      { id:'uiux-kit', name:'UIUX-Kit', emoji:'🧰', desc:'קומפוננטות שירות לשכפול מהיר.', chips:['כלים','קומפוננטות','מהיר'] },
-      { id:'uiux-blueprints', name:'UIUX-Blueprints', emoji:'📐', desc:'גרידים מדויקים ומדידות.', chips:['גריד','אדריכלות','דיוק'] },
-      { id:'uiux-skeletons', name:'UIUX-Skeletons', emoji:'🦴', desc:'מינימליסטי, נקי מרעש.', chips:['מינימל','שלד','התחלה'] },
-      { id:'uiux-frames', name:'UIUX-Frames', emoji:'🖼️', desc:'מסגרות פריסה ללא תוכן.', chips:['פריסה','מסגרות','ניטרלי'] },
-      { id:'uiux-core', name:'UIUX-Core', emoji:'🧠', desc:'חוקים משותפים וטוקנים.', chips:['טוקנים','חוקים','משותף'] },
-      { id:'uiux-lab', name:'UIUX-Lab', emoji:'🧪', desc:'אינטראקציות ניסיוניות.', chips:['ניסוי','חדש','מעבדה'] },
-      { id:'uiux-factory', name:'UIUX-Factory', emoji:'🏭', desc:'מגוון גרסאות תחת בסיס אחיד.', chips:['וריאציות','ייצור','סקייל'] },
-      { id:'uiux-engine', name:'UIUX-Engine', emoji:'⚙️', desc:'מערכות מצב ולוגיקה UI.', chips:['מצבים','מערכות','לוגיקה'] },
-      { id:'uiux-stack', name:'UIUX-Stack', emoji:'🧱', desc:'בלוקים קומפוזביליים.', chips:['בלוקים','קומפוזיציה','מערכת'] },
-      { id:'uiux-studio', name:'UIUX-Studio', emoji:'🎨', desc:'תבניות עיצוב פרימיום.', chips:['עיצוב','פוליש','חזותי'] },
-      { id:'uiux-designcraft', name:'UIUX-DesignCraft', emoji:'✍️', desc:'טיפוגרפיה וריווח מוקפד.', chips:['טיפוגרפיה','ריווח','דיוק'] },
-      { id:'uiux-patterns', name:'UIUX-Patterns', emoji:'🧵', desc:'דפוסי UX חוזרים.', chips:['דפוסים','UX','חוזר'] },
-      { id:'uiux-canvas', name:'UIUX-Canvas', emoji:'🖌️', desc:'פריסות יצירתיות.', chips:['יצירתי','פריסה','אקספרסיבי'] },
-      { id:'uiux-shapes', name:'UIUX-Shapes', emoji:'🔷', desc:'גאומטריה ובלוקים חזותיים.', chips:['גאומטריה','צורות','כרטיסים'] },
-      { id:'uiux-launchpad', name:'UIUX-Launchpad', emoji:'🚀', desc:'עמודי נחיתה ו־CTA.', chips:['נחיתה','מחירון','CTA'] },
-      { id:'uiux-starter', name:'UIUX-Starter', emoji:'🌱', desc:'תבניות התחלה מהירות.', chips:['התחלה','מהיר','פשוט'] },
-      { id:'uiux-booster', name:'UIUX-Booster', emoji:'⚡', desc:'אינטראקציות זריזות.', chips:['זריז','מהירות','ביצועים'] },
-      { id:'uiux-flow', name:'UIUX-Flow', emoji:'🌊', desc:'מסעות משתמש ואונבורדינג.', chips:['מסע','שלבים','זרימה'] },
-      { id:'uiux-pulse', name:'UIUX-Pulse', emoji:'💓', desc:'תנועה ומיקרו־אינטראקציות.', chips:['תנועה','מיקרו','רגש'] },
-      { id:'uxmind-craft', name:'UXMind-Craft', emoji:'🧠', desc:'פסיכולוגיית משתמש.', chips:['פסיכולוגיה','בהירות','כוונה'] },
-      { id:'interface-craft', name:'Interface-Craft', emoji:'🧩', desc:'ממשקים פרקטיים.', chips:['ממשק','פרקטי','UI'] },
-      { id:'humanui-craft', name:'HumanUI-Craft', emoji:'👤', desc:'אנושי ונגיש.', chips:['נגישות','קריאות','אנושי'] },
-      { id:'experience-craft', name:'Experience-Craft', emoji:'✨', desc:'חוויה פרימיום.', chips:['פרימיום','מוצר','חווייתי'] },
-      { id:'designflow-ux', name:'DesignFlow-UX', emoji:'🌐', desc:'זרימות ניווט ומבנים.', chips:['זרימה','ניווט','מערכת'] }
-    ];
+  {
+    id: 'uiux-craft',
+    name: 'UIUX-Craft',
+    emoji: '🗄️',
+    desc: 'סגנון הליבה — איזון וברירת מחדל.',
+    chips: [
+      'מאוזן',
+      'נקי',
+      'בסיס'
+    ],
+    strategy: [
+      'עוגן ברירת מחדל מאוזן לכל האוספים',
+      'בהירות גם במסכים עתירי נתונים',
+      'נגישות וקריאות כסטנדרט',
+      'מיתוג מהיר בלי לשבור מבנה'
+    ],
+    sections: [
+      'Hero סקירה + הבטחת ערך',
+      'גריד פיצ\'רים מרכזיים',
+      'דוגמת טוקנים וסקלת טיפוגרפיה',
+      'דוגמאות פריסה ודשבורד',
+      'גלריית תבניות',
+      'CTA להטמעה'
+    ],
+    elements: [
+      'כפתורים וכרטיסים',
+      'טפסים ושדות קלט',
+      'טאבים ותגיות מצב',
+      'טבלאות ותרשימים',
+      'מודאלים והתראות',
+      'ניווט עליון וצידי'
+    ]
+  },
+  {
+    id: 'uiux-forge',
+    name: 'UIUX-Forge',
+    emoji: '🔨',
+    desc: 'פאנלים תעשייתיים, צללים חזקים.',
+    chips: [
+      'תעשייתי',
+      'פאנלים',
+      'צללים'
+    ],
+    strategy: [
+      'שדר אמינות ותפעול כבד',
+      'תצוגת ניטור והתראות ברורה',
+      'ארגון עומס מידע בפאנלים',
+      'התמקדות בזרימות עבודה'
+    ],
+    sections: [
+      'Hero כהה עם KPI מרכזיים',
+      'רצועת סטטוס מערכת',
+      'גלריית פאנלים ותצוגות',
+      'זרימות עבודה ותהליכים',
+      'לוגים והתרעות',
+      'CTA להפעלה'
+    ],
+    elements: [
+      'פאנלים כבדים',
+      'טבלאות נתונים',
+      'שורת פקודות',
+      'צ׳יפים סטטוס',
+      'התראות קריטיות',
+      'פסי התקדמות'
+    ]
+  },
+  {
+    id: 'uiux-kit',
+    name: 'UIUX-Kit',
+    emoji: '🧰',
+    desc: 'קומפוננטות שירות לשכפול מהיר.',
+    chips: [
+      'כלים',
+      'קומפוננטות',
+      'מהיר'
+    ],
+    strategy: [
+      'ארגז כלים מודולרי לשכפול מהיר',
+      'עקביות חזותית בין צוותים',
+      'תיעוד שימוש פשוט וברור',
+      'רכיבים מוכנים להטמעה'
+    ],
+    sections: [
+      'Hero להצגת הערכה',
+      'קטלוג קומפוננטות',
+      'מתכוני פריסה מוכנים',
+      'כללי שימוש והתנהגות',
+      'הטמעה מהירה',
+      'CTA להתחלה'
+    ],
+    elements: [
+      'כפתורים וטוגלים',
+      'שדות קלט ודרופדאון',
+      'צ׳יפים ותגיות',
+      'טולטיפים',
+      'פאג׳ינציה',
+      'מודאלים'
+    ]
+  },
+  {
+    id: 'uiux-blueprints',
+    name: 'UIUX-Blueprints',
+    emoji: '📐',
+    desc: 'גרידים מדויקים ומדידות.',
+    chips: [
+      'גריד',
+      'אדריכלות',
+      'דיוק'
+    ],
+    strategy: [
+      'דיוק גרידי והיררכיה ברורה',
+      'תכנון לפני עיצוב חזותי',
+      'מסמכי מדידה גלויים',
+      'סקיילביליות בעזרת כללי מבנה'
+    ],
+    sections: [
+      'Hero מפת גריד',
+      'סקייל ריווח ובייסליין',
+      'Blueprints לפריסות',
+      'Breakpoints וטבלאות',
+      'אנטומיית רכיבים',
+      'CTA לשימוש'
+    ],
+    elements: [
+      'גרידים וקווי עזר',
+      'רולרים למדידות',
+      'טוקני ריווח',
+      'כרטיסי פריסה',
+      'מדדי ברייקפוינט',
+      'שכבות אנוטציה'
+    ]
+  },
+  {
+    id: 'uiux-skeletons',
+    name: 'UIUX-Skeletons',
+    emoji: '🦴',
+    desc: 'מינימליסטי, נקי מרעש.',
+    chips: [
+      'מינימל',
+      'שלד',
+      'התחלה'
+    ],
+    strategy: [
+      'בסיס נקי לפרוטוטייפ מהיר',
+      'שלדי טעינה ו־empty states',
+      'מינימום צבע והסחות',
+      'שילוב תוכן אמיתי בהמשך'
+    ],
+    sections: [
+      'Hero מינימלי',
+      'גלריית שלדי טעינה',
+      'Empty states',
+      'טיפוגרפיה בסיסית',
+      'טפסים בסיסיים',
+      'CTA'
+    ],
+    elements: [
+      'שלדים ו־shimmer',
+      'כרטיסים מינימליים',
+      'ניווט פשוט',
+      'שדות בסיסיים',
+      'כפתורי בסיס',
+      'Placeholder media'
+    ]
+  },
+  {
+    id: 'uiux-frames',
+    name: 'UIUX-Frames',
+    emoji: '🖼️',
+    desc: 'מסגרות פריסה ללא תוכן.',
+    chips: [
+      'פריסה',
+      'מסגרות',
+      'ניטרלי'
+    ],
+    strategy: [
+      'מסגרות חוזרות לפריסות שונות',
+      'הפרדת מבנה מתוכן',
+      'רספונסיביות יציבה',
+      'התאמה מהירה למיתוג'
+    ],
+    sections: [
+      'Hero מסגרות',
+      'גלריית פריסות',
+      'כללי מסגרת',
+      'תבניות רספונסיביות',
+      'דוגמאות slots',
+      'CTA'
+    ],
+    elements: [
+      'Header/Footer',
+      'Sidebars',
+      'Split panes',
+      'אזורי תוכן',
+      'גבולות וקווי חלוקה',
+      'Slots מודולריים'
+    ]
+  },
+  {
+    id: 'uiux-core',
+    name: 'UIUX-Core',
+    emoji: '🧠',
+    desc: 'חוקים משותפים וטוקנים.',
+    chips: [
+      'טוקנים',
+      'חוקים',
+      'משותף'
+    ],
+    strategy: [
+      'מקור אמת לטוקנים ולחוקים',
+      'הגדרת סטייטים ושמות עקביים',
+      'Governance ברור בין אוספים',
+      'תיעוד שקוף ונגיש'
+    ],
+    sections: [
+      'Hero טוקנים',
+      'עקרונות מערכת',
+      'טבלאות טוקנים',
+      'חוזים לרכיבים',
+      'Governance workflow',
+      'CTA'
+    ],
+    elements: [
+      'טוקני צבע',
+      'סקייל טיפוגרפיה',
+      'טוקני ריווח',
+      'טבלאות סטייט',
+      'דוקומנטציה',
+      'קישורים לדוגמאות'
+    ]
+  },
+  {
+    id: 'uiux-lab',
+    name: 'UIUX-Lab',
+    emoji: '🧪',
+    desc: 'אינטראקציות ניסיוניות.',
+    chips: [
+      'ניסוי',
+      'חדש',
+      'מעבדה'
+    ],
+    strategy: [
+      'זירת ניסויים ובדיקות',
+      'איסוף למידה והפקת לקחים',
+      'פרוטוטייפים אינטראקטיביים',
+      'מסגרות בטוחות לבדיקות'
+    ],
+    sections: [
+      'Hero ניסיוני',
+      'מעבדת אינטראקציות',
+      'ניסויי Motion',
+      'כרטיסי אבטיפוס',
+      'Feedback loops',
+      'CTA'
+    ],
+    elements: [
+      'דמואים אינטראקטיביים',
+      'כרטיסי ניסוי',
+      'בקרים ניסיוניים',
+      'אנוטציות תוצאה',
+      'Sliders',
+      'מצבי בדיקה'
+    ]
+  },
+  {
+    id: 'uiux-factory',
+    name: 'UIUX-Factory',
+    emoji: '🏭',
+    desc: 'מגוון גרסאות תחת בסיס אחיד.',
+    chips: [
+      'וריאציות',
+      'ייצור',
+      'סקייל'
+    ],
+    strategy: [
+      'ייצור וריאציות בקצב גבוה',
+      'ניהול תמות ללא שבירת בסיס',
+      'דוקומנטציה לכל גרסה',
+      'התאמה למוצרים מרובים'
+    ],
+    sections: [
+      'Hero Factory',
+      'מטריצת וריאציות',
+      'Theme switcher',
+      'Batch components',
+      'תיעוד גרסאות',
+      'CTA'
+    ],
+    elements: [
+      'Selectors לתמות',
+      'כרטיסי וריאציה',
+      'תגיות גרסה',
+      'רשימות רכיבים',
+      'Bulk actions',
+      'מפת התאמות'
+    ]
+  },
+  {
+    id: 'uiux-engine',
+    name: 'UIUX-Engine',
+    emoji: '⚙️',
+    desc: 'מערכות מצב ולוגיקה UI.',
+    chips: [
+      'מצבים',
+      'מערכות',
+      'לוגיקה'
+    ],
+    strategy: [
+      'לוגיקת מצבים ברורה',
+      'ניהול תהליכים מורכבים',
+      'טעויות והתאוששות',
+      'ניטור מערכת וחיווי'
+    ],
+    sections: [
+      'Hero State Machine',
+      'תרשימי מצבים',
+      'שלבי תהליך',
+      'טיפול בשגיאות',
+      'Health מצב מערכת',
+      'CTA'
+    ],
+    elements: [
+      'State chips',
+      'Loaders',
+      'Banners לשגיאות',
+      'Retry panels',
+      'Progress indicators',
+      'Log viewer'
+    ]
+  },
+  {
+    id: 'uiux-stack',
+    name: 'UIUX-Stack',
+    emoji: '🧱',
+    desc: 'בלוקים קומפוזביליים.',
+    chips: [
+      'בלוקים',
+      'קומפוזיציה',
+      'מערכת'
+    ],
+    strategy: [
+      'בנייה עם בלוקים ניתנים להרכבה',
+      'מודולריות ללא עיצוב מחדש',
+      'תמיכה ב־nesting',
+      'תיעוד של בלוקים חוזרים'
+    ],
+    sections: [
+      'Hero Blocks',
+      'Stack builder',
+      'ספריית בלוקים',
+      'מתכוני פריסה',
+      'כללי שילוב',
+      'CTA'
+    ],
+    elements: [
+      'כרטיסי בלוק',
+      'Drag handles',
+      'Dividers',
+      'Nested panels',
+      'Accordions',
+      'Metadata tags'
+    ]
+  },
+  {
+    id: 'uiux-studio',
+    name: 'UIUX-Studio',
+    emoji: '🎨',
+    desc: 'תבניות עיצוב פרימיום.',
+    chips: [
+      'עיצוב',
+      'פוליש',
+      'חזותי'
+    ],
+    strategy: [
+      'הבלטת פרימיום ויזואלי',
+      'סיפור מותג וחוויה עשירה',
+      'קומפוננטות Signature',
+      'דגש על פוליש'
+    ],
+    sections: [
+      'Hero פרימיום',
+      'Brand story',
+      'גלריית ויזואל',
+      'Signature components',
+      'Testimonials',
+      'CTA'
+    ],
+    elements: [
+      'Hero media',
+      'כפתורי פרימיום',
+      'גלריה/קרוסלה',
+      'כרטיסי עדות',
+      'כרטיסי Showcase',
+      'ניווט עשיר'
+    ]
+  },
+  {
+    id: 'uiux-designcraft',
+    name: 'UIUX-DesignCraft',
+    emoji: '✍️',
+    desc: 'טיפוגרפיה וריווח מוקפד.',
+    chips: [
+      'טיפוגרפיה',
+      'ריווח',
+      'דיוק'
+    ],
+    strategy: [
+      'טיפוגרפיה כבסיס חווייתי',
+      'ריווח עקבי וקריא',
+      'מודולים תוכניים עשירים',
+      'הדגשת תוכן ארוך'
+    ],
+    sections: [
+      'Hero טיפוגרפי',
+      'Type scale',
+      'מערכת ריווח',
+      'מודולי תוכן',
+      'פריסות קריאה',
+      'CTA'
+    ],
+    elements: [
+      'Headline styles',
+      'Pull quotes',
+      'Content cards',
+      'Lists',
+      'Code blocks',
+      'Section dividers'
+    ]
+  },
+  {
+    id: 'uiux-patterns',
+    name: 'UIUX-Patterns',
+    emoji: '🧵',
+    desc: 'דפוסי UX חוזרים.',
+    chips: [
+      'דפוסים',
+      'UX',
+      'חוזר'
+    ],
+    strategy: [
+      'איסוף דפוסי UX מוכחים',
+      'יישור התנהגות בין מוצרים',
+      'הצגת דוגמאות Do/Don’t',
+      'הנחיות יישום ברורות'
+    ],
+    sections: [
+      'Hero דפוסים',
+      'ספריית דפוסים',
+      'User flows',
+      'Decision trees',
+      'Do/Don’t',
+      'CTA'
+    ],
+    elements: [
+      'כרטיסי דפוס',
+      'תרשימי זרימה',
+      'Wizards',
+      'Modals',
+      'Steppers',
+      'Pattern notes'
+    ]
+  },
+  {
+    id: 'uiux-canvas',
+    name: 'UIUX-Canvas',
+    emoji: '🖌️',
+    desc: 'פריסות יצירתיות.',
+    chips: [
+      'יצירתי',
+      'פריסה',
+      'אקספרסיבי'
+    ],
+    strategy: [
+      'סיפור חזותי יצירתי',
+      'גרידים אסימטריים',
+      'שכבות עומק',
+      'תנועה עדינה לתמיכה בנרטיב'
+    ],
+    sections: [
+      'Hero Canvas',
+      'גרידים גמישים',
+      'Storytelling blocks',
+      'Immersive sections',
+      'גלריה',
+      'CTA'
+    ],
+    elements: [
+      'Collage blocks',
+      'Mixed media cards',
+      'Layouts אסימטריים',
+      'Badges צפים',
+      'גלריית תמונות',
+      'Dividers יצירתיים'
+    ]
+  },
+  {
+    id: 'uiux-shapes',
+    name: 'UIUX-Shapes',
+    emoji: '🔷',
+    desc: 'גאומטריה ובלוקים חזותיים.',
+    chips: [
+      'גאומטריה',
+      'צורות',
+      'כרטיסים'
+    ],
+    strategy: [
+      'שפה גאומטרית אחידה',
+      'שימוש בצורות להדגשה',
+      'שילוב צורה ופונקציה',
+      'בדיקת קריאות בכל צורה'
+    ],
+    sections: [
+      'Hero Shapes',
+      'Shape system',
+      'Card geometry',
+      'Icon grid',
+      'ניסויי פריסה',
+      'CTA'
+    ],
+    elements: [
+      'כרטיסים גאומטריים',
+      'כפתורים פוליגון',
+      'Badges צורניים',
+      'Divider גאומטרי',
+      'Tab shapes',
+      'אייקונים צורניים'
+    ]
+  },
+  {
+    id: 'uiux-launchpad',
+    name: 'UIUX-Launchpad',
+    emoji: '🚀',
+    desc: 'עמודי נחיתה ו־CTA.',
+    chips: [
+      'נחיתה',
+      'מחירון',
+      'CTA'
+    ],
+    strategy: [
+      'המרות גבוהות ו־CTA ברורים',
+      'הוכחות חברתיות ובטחון',
+      'מסרים תועלתיים קצרים',
+      'שכפול מהיר לקמפיינים'
+    ],
+    sections: [
+      'Hero CTA',
+      'Value props',
+      'Feature highlights',
+      'Pricing',
+      'FAQ',
+      'CTA סופי'
+    ],
+    elements: [
+      'כפתורי CTA',
+      'כרטיסי מחיר',
+      'לוגואים של לקוחות',
+      'Testimonials',
+      'טופס קצר',
+      'מדדי אמון'
+    ]
+  },
+  {
+    id: 'uiux-starter',
+    name: 'UIUX-Starter',
+    emoji: '🌱',
+    desc: 'תבניות התחלה מהירות.',
+    chips: [
+      'התחלה',
+      'מהיר',
+      'פשוט'
+    ],
+    strategy: [
+      'הפחתת עומס החלטות',
+      'ברירות מחדל ברורות',
+      'חיבור קל למערכת',
+      'הדרכה צעד-אחר-צעד'
+    ],
+    sections: [
+      'Hero Quickstart',
+      'Checklist התחלה',
+      'רכיבי חובה',
+      'Starter layouts',
+      'Sample pages',
+      'CTA'
+    ],
+    elements: [
+      'ניווט בסיסי',
+      'Cards',
+      'Forms',
+      'Alerts',
+      'Lists',
+      'Stats cards'
+    ]
+  },
+  {
+    id: 'uiux-booster',
+    name: 'UIUX-Booster',
+    emoji: '⚡',
+    desc: 'אינטראקציות זריזות.',
+    chips: [
+      'זריז',
+      'מהירות',
+      'ביצועים'
+    ],
+    strategy: [
+      'קצב פעולה מהיר',
+      'תחושת ביצועים גבוהה',
+      'מינימום חיכוך בזרימות',
+      'תצוגת קיצורי דרך'
+    ],
+    sections: [
+      'Hero מהירות',
+      'Performance metrics',
+      'Responsive snippets',
+      'קטלוג אינטראקציות',
+      'טיפים לאופטימיזציה',
+      'CTA'
+    ],
+    elements: [
+      'Inline loaders',
+      'Quick actions',
+      'Compact menus',
+      'Search מהיר',
+      'Keyboard hints',
+      'Lightweight badges'
+    ]
+  },
+  {
+    id: 'uiux-flow',
+    name: 'UIUX-Flow',
+    emoji: '🌊',
+    desc: 'מסעות משתמש ואונבורדינג.',
+    chips: [
+      'מסע',
+      'שלבים',
+      'זרימה'
+    ],
+    strategy: [
+      'הנחיית משתמש לאורך שלבים',
+      'שימור תשומת לב עם פרוגרס',
+      'הפחתת נטישה',
+      'רגעי הצלחה ברורים'
+    ],
+    sections: [
+      'Hero Flow',
+      'Journey map',
+      'Onboarding steps',
+      'Progress tracker',
+      'Key moments',
+      'CTA'
+    ],
+    elements: [
+      'Stepper',
+      'Progress bar',
+      'Timeline',
+      'Checklist',
+      'Tip cards',
+      'Milestone badges'
+    ]
+  },
+  {
+    id: 'uiux-pulse',
+    name: 'UIUX-Pulse',
+    emoji: '💓',
+    desc: 'תנועה ומיקרו־אינטראקציות.',
+    chips: [
+      'תנועה',
+      'מיקרו',
+      'רגש'
+    ],
+    strategy: [
+      'פידבק רגשי דרך Motion',
+      'הדגשת מצבים ומעברים',
+      'שמירה על נוחות ונגישות',
+      'כללים למיקרו־אינטראקציות'
+    ],
+    sections: [
+      'Hero Pulse',
+      'Motion guidelines',
+      'גלריית מיקרו־אינטראקציות',
+      'State transitions',
+      'Feedback patterns',
+      'CTA'
+    ],
+    elements: [
+      'Animated buttons',
+      'Hover cards',
+      'Pulse indicators',
+      'Toast alerts',
+      'Loaders',
+      'Success animations'
+    ]
+  },
+  {
+    id: 'uxmind-craft',
+    name: 'UXMind-Craft',
+    emoji: '🧠',
+    desc: 'פסיכולוגיית משתמש.',
+    chips: [
+      'פסיכולוגיה',
+      'בהירות',
+      'כוונה'
+    ],
+    strategy: [
+      'הפחתת עומס קוגניטיבי',
+      'חיזוק אמון והסברים',
+      'תמיכה בקבלת החלטות',
+      'מניעת טעויות'
+    ],
+    sections: [
+      'Hero Cognition',
+      'עקרונות התנהגות',
+      'Persuasion patterns',
+      'Checklist בהירות',
+      'Trust signals',
+      'CTA'
+    ],
+    elements: [
+      'Nudges',
+      'Reassurance chips',
+      'Expectation setters',
+      'Error prevention',
+      'Trust badges',
+      'Helper text'
+    ]
+  },
+  {
+    id: 'interface-craft',
+    name: 'Interface-Craft',
+    emoji: '🧩',
+    desc: 'ממשקים פרקטיים.',
+    chips: [
+      'ממשק',
+      'פרקטי',
+      'UI'
+    ],
+    strategy: [
+      'משימות ברורות ושימושיות',
+      'עומס מידע מנוהל',
+      'פעולות מהירות ונגישות',
+      'יעילות על פני קישוט'
+    ],
+    sections: [
+      'Hero Interface',
+      'Task layouts',
+      'Data density',
+      'Action bars',
+      'Component toolkit',
+      'CTA'
+    ],
+    elements: [
+      'Action bars',
+      'Tables',
+      'Filters',
+      'Bulk actions',
+      'Forms',
+      'Quick edits'
+    ]
+  },
+  {
+    id: 'humanui-craft',
+    name: 'HumanUI-Craft',
+    emoji: '👤',
+    desc: 'אנושי ונגיש.',
+    chips: [
+      'נגישות',
+      'קריאות',
+      'אנושי'
+    ],
+    strategy: [
+      'נוחות אנושית לפני הכול',
+      'נגישות מובנית לכל רכיב',
+      'קריאות גבוהה וריווח נדיב',
+      'שפה אמפתית ומכילה'
+    ],
+    sections: [
+      'Hero Human',
+      'Inclusive design',
+      'Readability',
+      'Comfort layout',
+      'Assistive patterns',
+      'CTA'
+    ],
+    elements: [
+      'Large type',
+      'High-contrast toggles',
+      'Helper text',
+      'Friendly icons',
+      'Accessible forms',
+      'Focus rings'
+    ]
+  },
+  {
+    id: 'experience-craft',
+    name: 'Experience-Craft',
+    emoji: '✨',
+    desc: 'חוויה פרימיום.',
+    chips: [
+      'פרימיום',
+      'מוצר',
+      'חווייתי'
+    ],
+    strategy: [
+      'חוויית פרימיום עם סיפור',
+      'בידול באמצעות ויזואל עשיר',
+      'תנועה קולנועית עדינה',
+      'שכבות אמון ויוקרה'
+    ],
+    sections: [
+      'Hero Luxury',
+      'Story modules',
+      'Feature highlights',
+      'Social proof',
+      'Concierge CTA',
+      'CTA'
+    ],
+    elements: [
+      'Immersive hero',
+      'Video cards',
+      'Premium badges',
+      'High-end CTA',
+      'Gallery',
+      'Testimonial rows'
+    ]
+  },
+  {
+    id: 'designflow-ux',
+    name: 'DesignFlow-UX',
+    emoji: '🌐',
+    desc: 'זרימות ניווט ומבנים.',
+    chips: [
+      'זרימה',
+      'ניווט',
+      'מערכת'
+    ],
+    strategy: [
+      'בהירות ניווט ומבנה מידע',
+      'חיבור בין מסכים ותהליכים',
+      'תיעוד Handoff לצוותים',
+      'חיזוק Wayfinding'
+    ],
+    sections: [
+      'Hero Flow map',
+      'Navigation schema',
+      'IA blueprint',
+      'Route patterns',
+      'Handoff specs',
+      'CTA'
+    ],
+    elements: [
+      'Sitemap',
+      'Breadcrumbs',
+      'Mega-menu',
+      'Wayfinding chips',
+      'Route cards',
+      'Nav states'
+    ]
+  }
+];
 
     const TEMPLATE_PAGES = [
       { id: 'login', label: 'Login' },
@@ -1132,6 +1964,20 @@ preview.png</pre></div>
         return hay.includes(query);
       });
 
+      const renderDetailCard = (title, icon, items) => `
+        <div class="card span-4">
+          <h2>${h(title)}</h2>
+          <ul class="list">
+            ${items.map((item) => `
+              <li class="li">
+                <div class="bullet">${h(icon)}</div>
+                <div><strong>${h(item)}</strong></div>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+      `;
+
       outlet.innerHTML = `
         <div class="section-header">
           <h2>🧠 אוספים</h2>
@@ -1144,6 +1990,11 @@ preview.png</pre></div>
             <div class="chiprow" style="margin-top:12px;">
               ${focus.chips.map(x => `<span class="chip">${h(x)}</span>`).join('')}
             </div>
+            <div class="grid" style="margin-top:16px;">
+              ${renderDetailCard('🎯 אסטרטגיית עיצוב', '🧭', focus.strategy)}
+              ${renderDetailCard('🧩 מקטעים בעמוד', '🧱', focus.sections)}
+              ${renderDetailCard('🔧 אלמנטים מרכזיים', '✨', focus.elements)}
+            </div>
             <div class="template-links" style="margin-top:14px;">
               ${TEMPLATE_PAGES.map((t) => `
                 <a class="template-link" href="collections/${h(focus.id)}/templates/${h(t.id)}/index.html" target="_blank" rel="noreferrer">
@@ -1151,7 +2002,7 @@ preview.png</pre></div>
                 </a>
               `).join('')}
             </div>
-            <p style="margin-top:12px; color:var(--muted);">הצעד הבא: ליצור <code>collections/${h(focus.id)}/_identity.md</code> + <code>_starter/</code> + תבניות ראשונות.</p>
+            <p style="margin-top:12px; color:var(--muted);">הצעד הבא: לרענן תבניות תחת <code>collections/${h(focus.id)}/templates/</code> לפי האסטרטגיה והאלמנטים של האוסף.</p>
           </div>
         ` : ''}
         <div class="collection-grid" id="collectionGrid"></div>
