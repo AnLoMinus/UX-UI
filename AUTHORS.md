@@ -1,0 +1,3 @@
+# Authors
+
+- AnLoMinus — Initiator & Maintainer
