@@ -361,7 +361,6 @@
       position:relative;
       overflow:hidden;
       transition: transform .12s ease, background .12s ease;
-      cursor: pointer;
     }
     .collection:hover{ transform: translateY(-2px); background: rgba(16,26,51,.66); }
     .collection:focus-visible{ outline:none; box-shadow: var(--focus); }
@@ -369,6 +368,35 @@
     .collection .desc{ color: var(--muted); font-size:12px; margin-top: 6px; }
 
     .collection .chiprow{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+    .collection .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top: 12px;
+    }
+    .collection .template-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top: 12px;
+    }
+    .template-link,
+    .collection-focus{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.18);
+      font-size:11px;
+      color: var(--text);
+    }
+    .template-link:hover,
+    .collection-focus:hover{
+      background: rgba(124,92,255,.18);
+      border-color: rgba(124,92,255,.45);
+    }
     .chip{
       font-size:11px;
       color: var(--muted);
@@ -831,6 +859,11 @@
       { id:'designflow-ux', name:'DesignFlow-UX', emoji:'🌐', desc:'זרימות ניווט ומבנים.', chips:['זרימה','ניווט','מערכת'] }
     ];
 
+    const TEMPLATE_PAGES = [
+      { id: 'login', label: 'Login' },
+      { id: 'dashboard', label: 'Dashboard' }
+    ];
+
     const drawer = document.getElementById('drawer');
     const backdrop = document.getElementById('backdrop');
     const openDrawerBtn = document.getElementById('openDrawer');
@@ -1111,6 +1144,13 @@ preview.png</pre></div>
             <div class="chiprow" style="margin-top:12px;">
               ${focus.chips.map(x => `<span class="chip">${h(x)}</span>`).join('')}
             </div>
+            <div class="template-links" style="margin-top:14px;">
+              ${TEMPLATE_PAGES.map((t) => `
+                <a class="template-link" href="collections/${h(focus.id)}/templates/${h(t.id)}/index.html" target="_blank" rel="noreferrer">
+                  ${h(t.label)}
+                </a>
+              `).join('')}
+            </div>
             <p style="margin-top:12px; color:var(--muted);">הצעד הבא: ליצור <code>collections/${h(focus.id)}/_identity.md</code> + <code>_starter/</code> + תבניות ראשונות.</p>
           </div>
         ` : ''}
@@ -1119,21 +1159,25 @@ preview.png</pre></div>
 
       const grid = document.getElementById('collectionGrid');
       filtered.forEach((c) => {
-        const el = document.createElement('button');
+        const el = document.createElement('div');
         el.className = 'collection';
-        el.type = 'button';
-        el.setAttribute('aria-label', c.name);
         el.innerHTML = `
           <div class="name">${h(c.emoji)} ${h(c.name)}</div>
           <div class="desc">${h(c.desc)}</div>
           <div class="chiprow">
             ${c.chips.map(x => `<span class="chip">${h(x)}</span>`).join('')}
           </div>
+          <div class="actions">
+            <a class="collection-focus" href="#/collections?focus=${h(c.id)}">פרטי אוסף</a>
+          </div>
+          <div class="template-links">
+            ${TEMPLATE_PAGES.map((t) => `
+              <a class="template-link" href="collections/${h(c.id)}/templates/${h(t.id)}/index.html" target="_blank" rel="noreferrer">
+                ${h(t.label)}
+              </a>
+            `).join('')}
+          </div>
         `;
-        el.addEventListener('click', () => {
-          location.hash = '#/collections?focus=' + c.id;
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
         grid.appendChild(el);
       });
     }

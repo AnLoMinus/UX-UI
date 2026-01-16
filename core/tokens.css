@@ -1,0 +1,14 @@
+:root {
+  --color-bg: #0f1115;
+  --color-surface: #171a21;
+  --color-text: #e6e9ef;
+  --color-accent: #5b8cff;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+}
