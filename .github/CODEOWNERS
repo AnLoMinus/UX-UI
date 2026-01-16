@@ -1,0 +1,6 @@
+# Default owners
+* @uiux-maintainers
+
+# Docs and governance
+/*.md @uiux-docs
+/CODEOWNERS @uiux-maintainers
