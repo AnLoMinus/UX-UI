@@ -1,5 +1,7 @@
 # UIUX-CraftVault
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/3005d671-657b-4190-b486-b3c796da6d03" />
+
 **Crafting Interfaces. Shaping Experiences.**
 
 ---
