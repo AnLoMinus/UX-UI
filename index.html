@@ -1,0 +1,1264 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f19" />
+  <title>UIUX-CraftVault — UX-UI</title>
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --panel:#101a33;
+      --panel2:#0e152b;
+      --text:#e9eefc;
+      --muted:#a9b3d6;
+      --border:rgba(255,255,255,.10);
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --radius2:26px;
+      --gap:16px;
+      --primary:#7c5cff;
+      --primary2:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --focus:0 0 0 3px rgba(124,92,255,.35);
+      --font: "Heebo", "Assistant", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:var(--font);
+      background: radial-gradient(900px 500px at 20% 0%, rgba(124,92,255,.18), transparent 60%),
+                  radial-gradient(900px 500px at 80% 10%, rgba(34,197,94,.16), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    code,kbd,pre{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+    /* Topbar */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:30;
+      backdrop-filter: blur(12px);
+      background: rgba(11,15,25,.65);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar-inner{
+      max-width:1200px;
+      margin:0 auto;
+      padding:14px 16px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .icon-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease;
+      color: var(--text);
+    }
+    .icon-btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
+    .icon-btn:active{ transform: translateY(0); }
+    .icon-btn:focus-visible{ outline:none; box-shadow: var(--focus); }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 0;
+      flex:1;
+    }
+    .brand-badge{
+      width:38px;
+      height:38px;
+      border-radius:14px;
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(34,197,94,.7));
+      box-shadow: 0 16px 45px rgba(124,92,255,.25);
+      position:relative;
+      overflow:hidden;
+    }
+    .brand-badge:after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.35), transparent 55%);
+      transform: rotate(18deg);
+    }
+    .brand-title{
+      display:flex;
+      flex-direction:column;
+      min-width:0;
+    }
+    .brand-title strong{
+      font-size:14px;
+      letter-spacing:.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand-title span{
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .top-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .primary-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(124,92,255,.45);
+      background: rgba(124,92,255,.14);
+      color: var(--text);
+      font-size:12px;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .primary-link:hover{ transform: translateY(-1px); background: rgba(124,92,255,.18); }
+    .primary-link:focus-visible{ outline:none; box-shadow: var(--focus); }
+
+    .search{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius: 12px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+    }
+
+    .search input{
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size:12px;
+      min-width: 150px;
+      outline: none;
+    }
+
+    /* Layout */
+    .wrap{
+      max-width:1200px;
+      margin:0 auto;
+      padding:22px 16px 60px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:22px;
+    }
+
+    .hero{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding:22px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-120px;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(124,92,255,.22), transparent 55%),
+        radial-gradient(circle at 75% 25%, rgba(34,197,94,.18), transparent 55%),
+        radial-gradient(circle at 60% 80%, rgba(245,158,11,.12), transparent 60%);
+      pointer-events:none;
+    }
+
+    .hero-inner{ position:relative; display:grid; gap:16px; }
+
+    .kicker{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.15);
+      font-size:12px;
+      color: var(--muted);
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(26px, 4vw, 40px);
+      letter-spacing:-.6px;
+      line-height:1.1;
+    }
+
+    .lead{
+      margin:0;
+      color: var(--muted);
+      max-width: 80ch;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      margin-top:6px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius: 16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); }
+    .btn:focus-visible{ outline:none; box-shadow: var(--focus); }
+
+    .btn.primary{
+      border-color: rgba(124,92,255,.45);
+      background: rgba(124,92,255,.14);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background: rgba(16,26,51,.62);
+      border-radius: var(--radius);
+      box-shadow: 0 14px 50px rgba(0,0,0,.28);
+      padding: 18px;
+    }
+
+    .card h2{ margin:0 0 10px; font-size:18px; letter-spacing:-.2px; }
+    .card p{ margin:0; color: var(--muted); }
+
+    .section{
+      border:1px solid var(--border);
+      border-radius: var(--radius2);
+      background: rgba(255,255,255,.03);
+      padding: 18px;
+    }
+
+    .section-header{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom: 12px;
+    }
+
+    .section-header h2{ margin:0; font-size:18px; }
+    .section-header .mini{ color: var(--muted); font-size:12px; }
+
+    .list{
+      display:grid;
+      gap:10px;
+      padding:0;
+      margin:0;
+      list-style:none;
+    }
+
+    .li{
+      display:flex;
+      gap:12px;
+      padding:12px;
+      border-radius: 16px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.14);
+    }
+
+    .bullet{
+      width:34px;
+      height:34px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(124,92,255,.16);
+      border:1px solid rgba(124,92,255,.35);
+      flex:0 0 auto;
+    }
+
+    .li strong{ display:block; font-size:14px; }
+    .li span{ display:block; color: var(--muted); font-size:12px; margin-top:2px; }
+
+    .codeblock{
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.22);
+      overflow:auto;
+    }
+    pre{ margin:0; color:#dbe3ff; font-size:12px; line-height:1.45; }
+
+    /* Collection cards */
+    .collection-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .collection{
+      border:1px solid var(--border);
+      background: rgba(16,26,51,.55);
+      border-radius: 20px;
+      padding: 14px;
+      position:relative;
+      overflow:hidden;
+      transition: transform .12s ease, background .12s ease;
+      cursor: pointer;
+    }
+    .collection:hover{ transform: translateY(-2px); background: rgba(16,26,51,.66); }
+    .collection:focus-visible{ outline:none; box-shadow: var(--focus); }
+    .collection .name{ font-weight:700; font-size:14px; }
+    .collection .desc{ color: var(--muted); font-size:12px; margin-top: 6px; }
+
+    .collection .chiprow{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+    .chip{
+      font-size:11px;
+      color: var(--muted);
+      border:1px solid var(--border);
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.12);
+    }
+
+    /* Drawer */
+    .backdrop{
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,.55);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .16s ease;
+      z-index:40;
+    }
+
+    .drawer{
+      position:fixed;
+      top:0;
+      right:0;
+      height:100vh;
+      width: 320px;
+      max-width: 88vw;
+      background: rgba(10,14,26,.86);
+      backdrop-filter: blur(18px);
+      border-left:1px solid var(--border);
+      transform: translateX(102%);
+      transition: transform .18s ease;
+      z-index:50;
+      box-shadow: -30px 0 90px rgba(0,0,0,.55);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .drawer-header{
+      padding: 16px;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+
+    .drawer-title{ display:flex; flex-direction:column; }
+    .drawer-title strong{ font-size:14px; }
+    .drawer-title span{ font-size:12px; color: var(--muted); }
+
+    .drawer-body{ padding: 10px 10px 16px; overflow:auto; }
+
+    .nav-group{ margin-top: 10px; }
+    .nav-group .label{ color: var(--muted); font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding: 10px 8px 8px; }
+
+    .nav a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 10px 10px;
+      border-radius: 14px;
+      border:1px solid transparent;
+      color: var(--text);
+    }
+
+    .nav a:hover{ background: rgba(255,255,255,.06); }
+    .nav a.active{ border-color: rgba(124,92,255,.42); background: rgba(124,92,255,.14); }
+
+    .kbd{
+      font-size: 11px;
+      color: var(--muted);
+      border:1px solid var(--border);
+      border-bottom-color: rgba(255,255,255,.16);
+      padding: 4px 7px;
+      border-radius: 10px;
+      background: rgba(0,0,0,.18);
+    }
+
+    .backdrop.open{ opacity:1; pointer-events:auto; }
+    .drawer.open{ transform: translateX(0); }
+
+    /* Modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,.6);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .18s ease;
+      z-index:60;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 24px;
+    }
+
+    .modal.open{ opacity:1; pointer-events:auto; }
+
+    .modal-card{
+      width: min(900px, 92vw);
+      max-height: 85vh;
+      background: rgba(10,14,26,.96);
+      border:1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+
+    .modal-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 16px 18px;
+      border-bottom:1px solid var(--border);
+    }
+
+    .modal-title{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .modal-title h3{
+      margin:0;
+      font-size:16px;
+    }
+
+    .modal-title span{
+      font-size:12px;
+      color: var(--muted);
+    }
+
+    .modal-body{
+      padding: 16px 18px 24px;
+      overflow:auto;
+      font-size: 14px;
+    }
+
+    .modal-body h1,
+    .modal-body h2,
+    .modal-body h3{
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+
+    .modal-body p{
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+
+    .modal-body ul{
+      margin: 0 0 12px 0;
+      padding-inline-start: 18px;
+    }
+
+    .modal-body li{
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
+    .modal-body pre{
+      background: rgba(0,0,0,.22);
+      padding: 12px;
+      border-radius: 12px;
+      border:1px solid var(--border);
+      overflow:auto;
+      margin-bottom: 12px;
+    }
+
+    .modal-body code{
+      background: rgba(0,0,0,.2);
+      padding: 2px 6px;
+      border-radius: 8px;
+      color: #dbe3ff;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      display:grid;
+      gap: 16px;
+    }
+
+    .footer-grid{
+      display:grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .footer-title{
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .footer-links{
+      display:grid;
+      gap: 6px;
+    }
+
+    .footer-links a{ color: var(--muted); }
+    .footer-links a:hover{ color: var(--text); }
+
+    .creator{
+      border:1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(16,26,51,.5);
+      display:grid;
+      gap: 6px;
+    }
+
+    .creator strong{ color: var(--text); }
+
+    .fine{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; }
+
+    @media (min-width: 980px){
+      .wrap{ padding-top: 26px; }
+      .grid .span-6{ grid-column: span 6; }
+      .grid .span-4{ grid-column: span 4; }
+      .grid .span-8{ grid-column: span 8; }
+      .grid .span-12{ grid-column: span 12; }
+    }
+
+    @media (max-width: 979px){
+      .grid{ grid-template-columns: 1fr; }
+      .grid > *{ grid-column: auto !important; }
+      .topbar-inner{ flex-wrap: wrap; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Heebo:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- Drawer -->
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-label="תפריט ניווט" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <strong>UIUX-CraftVault</strong>
+        <span>אוספים • תבניות • מסמכים</span>
+      </div>
+      <button class="icon-btn" id="closeDrawer" aria-label="סגירת תפריט">
+        ✕
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="nav-group">
+        <div class="label">עמודים</div>
+        <nav class="nav" id="navPages"></nav>
+      </div>
+
+      <div class="nav-group">
+        <div class="label">מסמכים</div>
+        <nav class="nav" id="navDocs"></nav>
+      </div>
+
+      <div class="nav-group">
+        <div class="label">אוספים</div>
+        <nav class="nav" id="navCollections"></nav>
+      </div>
+
+      <div class="nav-group">
+        <div class="label">קיצורי דרך</div>
+        <div class="list" style="gap:8px;">
+          <div class="li" style="align-items:center;">
+            <div class="bullet">⌘</div>
+            <div>
+              <strong>מקלדת</strong>
+              <span><span class="kbd">M</span> תפריט • <span class="kbd">/</span> חיפוש</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Modal -->
+  <div class="modal" id="docModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <h3 id="modalTitle">מסמך</h3>
+          <span id="modalSubtitle"></span>
+        </div>
+        <button class="icon-btn" id="closeModal" aria-label="סגור חלון מסמך">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <button class="icon-btn" id="openDrawer" aria-label="פתיחת תפריט">☰</button>
+
+      <div class="brand" title="UIUX-CraftVault">
+        <div class="brand-badge" aria-hidden="true"></div>
+        <div class="brand-title">
+          <strong>UIUX-CraftVault</strong>
+          <span>שלדי UI/UX מקצועיים ב־HTML/CSS/JS</span>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <div class="pill" id="versionPill">גרסה 0.1.0</div>
+        <div class="pill" id="metaPill">📅 16 Jan 2026 • 🕒 05:09</div>
+        <div class="search">
+          🔎
+          <input id="searchInput" type="search" placeholder="חיפוש אוספים / מסמכים" />
+        </div>
+        <a class="primary-link" href="https://github.com/AnLoMinus/UX-UI" target="_blank" rel="noreferrer">מאגר GitHub ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="wrap" id="app">
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="kicker">
+          <span class="tag">🗄️ CraftVault</span>
+          <span class="tag">🧩 Collections</span>
+          <span class="tag">⚡ HTML • CSS • JS</span>
+          <span class="tag">🌐 GitHub Pages</span>
+        </div>
+        <h1>בנו מהר יותר עם שלדי UI/UX מוכנים — מאורגנים לפי עולמות סגנון.</h1>
+        <p class="lead">Vault אחד עם אוספים רבים. לכל אוסף זהות משלו (פלטה, טיפוגרפיה, DNA פריסה, תנועה ונגישות) תוך שיתוף ליבה יציבה לסקייל ותחזוקה.</p>
+        <div class="cta-row">
+          <button class="btn primary" data-route="#/docs">📘 עיון במסמכים</button>
+          <button class="btn" data-route="#/collections">🧠 עיון באוספים</button>
+          <a class="btn" href="https://anlominus.github.io/UX-UI/" target="_blank" rel="noreferrer">🔗 אתר חי ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="card span-4">
+        <h2>🧱 תבניות סטנדרטיות</h2>
+        <p>כל תבנית היא תיקייה מוכנה עם <code>index.html</code>, <code>styles.css</code>, <code>app.js</code> ו־<code>meta.json</code> לקטלוג.</p>
+      </section>
+      <section class="card span-4">
+        <h2>🎭 זהות אוסף</h2>
+        <p>כל אוסף מגדיר DNA ב־<code>_identity.md</code>: פלטה, טיפוגרפיה, פריסה, תנועה וכללי נגישות.</p>
+      </section>
+      <section class="card span-4">
+        <h2>🌐 קטלוג ציבורי</h2>
+        <p>התיעוד מציג תבניות נבחרות בלבד — שליטה מלאה במה ציבורי ומה ניסיוני.</p>
+      </section>
+    </div>
+
+    <!-- Router outlet -->
+    <section class="section" id="outlet" aria-live="polite"></section>
+
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">מפת אתר</div>
+          <div class="footer-links" id="footerSitemap"></div>
+        </div>
+        <div>
+          <div class="footer-title">מסמכים מרכזיים</div>
+          <div class="footer-links" id="footerDocs"></div>
+        </div>
+        <div>
+          <div class="footer-title">קהילה ותמיכה</div>
+          <div class="footer-links">
+            <a href="#/contributing">תרומה</a>
+            <a href="#/code-of-conduct">קוד התנהגות</a>
+            <a href="#/support">תמיכה</a>
+            <a href="#/security">אבטחה</a>
+          </div>
+        </div>
+        <div class="creator">
+          <div class="footer-title">קרדיטים</div>
+          <strong>AnLoMinus</strong>
+          <span>יוזם ומתחזק · Design Systems & UX Architecture</span>
+          <span>מיקוד: שפות עיצוב מודולריות ותבניות UI סקיילביליות.</span>
+          <a href="https://github.com/AnLoMinus" target="_blank" rel="noreferrer">פרופיל GitHub</a>
+        </div>
+      </div>
+      <div class="fine">
+        <span>© UIUX-CraftVault • כל הזכויות שמורות.</span>
+        <span id="footerMeta">תאריך עברי: כ״ז טבת תשפ״ו</span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const VERSION = '0.1.0';
+
+    const PAGES = [
+      { id: 'docs', title: '📘 מסמכי בסיס', desc: 'סקירה, מטרות וסטנדרטים.' },
+      { id: 'structure', title: '🧱 מבנה המאגר', desc: 'תיקיות, ליבה ואוספים.' },
+      { id: 'templates', title: '🧩 תקן תבניות', desc: 'חוזה תיקיות ו־meta.json.' },
+      { id: 'workflow', title: '🚀 זרימת עבודה', desc: 'איך להרחיב את המאגר נכון.' },
+      { id: 'a11y', title: '♿ נגישות', desc: 'כללים לנגישות ומיקוד.' },
+      { id: 'collections', title: '🧠 אוספים', desc: 'עולמות סגנון ותבניות.' }
+    ];
+
+    const DOCS = [
+      { id: 'readme', title: 'README', file: 'README.md', desc: 'חזון ומבנה המאגר.' },
+      { id: 'license', title: 'LICENSE', file: 'LICENSE', desc: 'רישיון שימוש.' },
+      { id: 'changelog', title: 'CHANGELOG', file: 'CHANGELOG.md', desc: 'יומן גרסאות.' },
+      { id: 'roadmap', title: 'ROADMAP', file: 'ROADMAP.md', desc: 'מפת דרכים.' },
+      { id: 'contributing', title: 'CONTRIBUTING', file: 'CONTRIBUTING.md', desc: 'כללי תרומה.' },
+      { id: 'code-of-conduct', title: 'CODE_OF_CONDUCT', file: 'CODE_OF_CONDUCT.md', desc: 'תרבות התנהגות.' },
+      { id: 'security', title: 'SECURITY', file: 'SECURITY.md', desc: 'מדיניות אבטחה.' },
+      { id: 'support', title: 'SUPPORT', file: 'SUPPORT.md', desc: 'תמיכה ושאלות נפוצות.' },
+      { id: 'governance', title: 'GOVERNANCE', file: 'GOVERNANCE.md', desc: 'מודל ממשל.' },
+      { id: 'releasing', title: 'RELEASING', file: 'RELEASING.md', desc: 'תהליך שחרור.' },
+      { id: 'version', title: 'VERSION', file: 'VERSION', desc: 'גרסה נוכחית.' },
+      { id: 'citation', title: 'CITATION', file: 'CITATION.cff', desc: 'ציטוט אקדמי.' },
+      { id: 'authors', title: 'AUTHORS', file: 'AUTHORS.md', desc: 'מחברים.' },
+      { id: 'contributors', title: 'CONTRIBUTORS', file: 'CONTRIBUTORS.md', desc: 'תורמים.' },
+      { id: 'acknowledgements', title: 'ACKNOWLEDGEMENTS', file: 'ACKNOWLEDGEMENTS.md', desc: 'הוקרות.' },
+      { id: 'codeowners', title: 'CODEOWNERS', file: '.github/CODEOWNERS', desc: 'בעלות על קוד.' }
+    ];
+
+    const COLLECTIONS = [
+      { id:'uiux-craft', name:'UIUX-Craft', emoji:'🗄️', desc:'סגנון הליבה — איזון וברירת מחדל.', chips:['מאוזן','נקי','בסיס'] },
+      { id:'uiux-forge', name:'UIUX-Forge', emoji:'🔨', desc:'פאנלים תעשייתיים, צללים חזקים.', chips:['תעשייתי','פאנלים','צללים'] },
+      { id:'uiux-kit', name:'UIUX-Kit', emoji:'🧰', desc:'קומפוננטות שירות לשכפול מהיר.', chips:['כלים','קומפוננטות','מהיר'] },
+      { id:'uiux-blueprints', name:'UIUX-Blueprints', emoji:'📐', desc:'גרידים מדויקים ומדידות.', chips:['גריד','אדריכלות','דיוק'] },
+      { id:'uiux-skeletons', name:'UIUX-Skeletons', emoji:'🦴', desc:'מינימליסטי, נקי מרעש.', chips:['מינימל','שלד','התחלה'] },
+      { id:'uiux-frames', name:'UIUX-Frames', emoji:'🖼️', desc:'מסגרות פריסה ללא תוכן.', chips:['פריסה','מסגרות','ניטרלי'] },
+      { id:'uiux-core', name:'UIUX-Core', emoji:'🧠', desc:'חוקים משותפים וטוקנים.', chips:['טוקנים','חוקים','משותף'] },
+      { id:'uiux-lab', name:'UIUX-Lab', emoji:'🧪', desc:'אינטראקציות ניסיוניות.', chips:['ניסוי','חדש','מעבדה'] },
+      { id:'uiux-factory', name:'UIUX-Factory', emoji:'🏭', desc:'מגוון גרסאות תחת בסיס אחיד.', chips:['וריאציות','ייצור','סקייל'] },
+      { id:'uiux-engine', name:'UIUX-Engine', emoji:'⚙️', desc:'מערכות מצב ולוגיקה UI.', chips:['מצבים','מערכות','לוגיקה'] },
+      { id:'uiux-stack', name:'UIUX-Stack', emoji:'🧱', desc:'בלוקים קומפוזביליים.', chips:['בלוקים','קומפוזיציה','מערכת'] },
+      { id:'uiux-studio', name:'UIUX-Studio', emoji:'🎨', desc:'תבניות עיצוב פרימיום.', chips:['עיצוב','פוליש','חזותי'] },
+      { id:'uiux-designcraft', name:'UIUX-DesignCraft', emoji:'✍️', desc:'טיפוגרפיה וריווח מוקפד.', chips:['טיפוגרפיה','ריווח','דיוק'] },
+      { id:'uiux-patterns', name:'UIUX-Patterns', emoji:'🧵', desc:'דפוסי UX חוזרים.', chips:['דפוסים','UX','חוזר'] },
+      { id:'uiux-canvas', name:'UIUX-Canvas', emoji:'🖌️', desc:'פריסות יצירתיות.', chips:['יצירתי','פריסה','אקספרסיבי'] },
+      { id:'uiux-shapes', name:'UIUX-Shapes', emoji:'🔷', desc:'גאומטריה ובלוקים חזותיים.', chips:['גאומטריה','צורות','כרטיסים'] },
+      { id:'uiux-launchpad', name:'UIUX-Launchpad', emoji:'🚀', desc:'עמודי נחיתה ו־CTA.', chips:['נחיתה','מחירון','CTA'] },
+      { id:'uiux-starter', name:'UIUX-Starter', emoji:'🌱', desc:'תבניות התחלה מהירות.', chips:['התחלה','מהיר','פשוט'] },
+      { id:'uiux-booster', name:'UIUX-Booster', emoji:'⚡', desc:'אינטראקציות זריזות.', chips:['זריז','מהירות','ביצועים'] },
+      { id:'uiux-flow', name:'UIUX-Flow', emoji:'🌊', desc:'מסעות משתמש ואונבורדינג.', chips:['מסע','שלבים','זרימה'] },
+      { id:'uiux-pulse', name:'UIUX-Pulse', emoji:'💓', desc:'תנועה ומיקרו־אינטראקציות.', chips:['תנועה','מיקרו','רגש'] },
+      { id:'uxmind-craft', name:'UXMind-Craft', emoji:'🧠', desc:'פסיכולוגיית משתמש.', chips:['פסיכולוגיה','בהירות','כוונה'] },
+      { id:'interface-craft', name:'Interface-Craft', emoji:'🧩', desc:'ממשקים פרקטיים.', chips:['ממשק','פרקטי','UI'] },
+      { id:'humanui-craft', name:'HumanUI-Craft', emoji:'👤', desc:'אנושי ונגיש.', chips:['נגישות','קריאות','אנושי'] },
+      { id:'experience-craft', name:'Experience-Craft', emoji:'✨', desc:'חוויה פרימיום.', chips:['פרימיום','מוצר','חווייתי'] },
+      { id:'designflow-ux', name:'DesignFlow-UX', emoji:'🌐', desc:'זרימות ניווט ומבנים.', chips:['זרימה','ניווט','מערכת'] }
+    ];
+
+    const drawer = document.getElementById('drawer');
+    const backdrop = document.getElementById('backdrop');
+    const openDrawerBtn = document.getElementById('openDrawer');
+    const closeDrawerBtn = document.getElementById('closeDrawer');
+    const searchInput = document.getElementById('searchInput');
+
+    const modal = document.getElementById('docModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const modalBody = document.getElementById('modalBody');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    function setDrawer(open){
+      drawer.classList.toggle('open', open);
+      backdrop.classList.toggle('open', open);
+      drawer.setAttribute('aria-hidden', String(!open));
+      backdrop.setAttribute('aria-hidden', String(!open));
+      if(open) closeDrawerBtn.focus();
+    }
+
+    function setModal(open){
+      modal.classList.toggle('open', open);
+      modal.setAttribute('aria-hidden', String(!open));
+      if(open) closeModalBtn.focus();
+    }
+
+    openDrawerBtn.addEventListener('click', () => setDrawer(true));
+    closeDrawerBtn.addEventListener('click', () => setDrawer(false));
+    backdrop.addEventListener('click', () => setDrawer(false));
+
+    closeModalBtn.addEventListener('click', () => setModal(false));
+    modal.addEventListener('click', (event) => {
+      if(event.target === modal) setModal(false);
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if(e.key.toLowerCase() === 'm' && !e.metaKey && !e.ctrlKey && !e.altKey){
+        e.preventDefault();
+        setDrawer(!drawer.classList.contains('open'));
+      }
+      if(e.key === 'Escape'){
+        setDrawer(false);
+        setModal(false);
+      }
+      if(e.key === '/' && document.activeElement !== searchInput){
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+
+    const outlet = document.getElementById('outlet');
+    const navPages = document.getElementById('navPages');
+    const navDocs = document.getElementById('navDocs');
+    const navCollections = document.getElementById('navCollections');
+
+    function h(text){
+      const span = document.createElement('span');
+      span.textContent = text;
+      return span.innerHTML;
+    }
+
+    function makeNavLink(href, label, keyHint){
+      const a = document.createElement('a');
+      a.href = href;
+      a.innerHTML = `<span>${h(label)}</span>${keyHint ? `<span class="kbd">${h(keyHint)}</span>` : ''}`;
+      return a;
+    }
+
+    function renderNav(){
+      navPages.innerHTML = '';
+      PAGES.forEach((p, idx) => {
+        const key = String(idx + 1);
+        const a = makeNavLink(`#/` + p.id, p.title, key);
+        navPages.appendChild(a);
+      });
+
+      navDocs.innerHTML = '';
+      DOCS.forEach((doc) => {
+        const a = makeNavLink(`#/` + doc.id, doc.title);
+        navDocs.appendChild(a);
+      });
+
+      navCollections.innerHTML = '';
+      COLLECTIONS.slice(0, 12).forEach((c) => {
+        const a = makeNavLink(`#/collections?focus=` + c.id, `${c.emoji} ${c.name}`);
+        navCollections.appendChild(a);
+      });
+
+      window.addEventListener('keydown', (e) => {
+        const n = Number(e.key);
+        if(!Number.isNaN(n) && n >= 1 && n <= PAGES.length){
+          if(e.metaKey || e.ctrlKey || e.altKey) return;
+          location.hash = '#/' + PAGES[n-1].id;
+          setDrawer(false);
+        }
+      }, { once:false });
+    }
+
+    function setActiveNav(){
+      const hash = location.hash || '#/docs';
+      const all = drawer.querySelectorAll('.nav a');
+      all.forEach(a => a.classList.toggle('active', a.getAttribute('href') === hash.split('?')[0]));
+    }
+
+    function route(){
+      const raw = (location.hash || '#/docs').replace(/^#\//, '');
+      const [path, query] = raw.split('?');
+      const params = new URLSearchParams(query || '');
+
+      setActiveNav();
+
+      const docRoute = DOCS.find((doc) => doc.id === path);
+      if(docRoute) return renderDocPage(docRoute);
+
+      if(path === 'docs') return renderDocs();
+      if(path === 'structure') return renderStructure();
+      if(path === 'templates') return renderTemplates();
+      if(path === 'workflow') return renderWorkflow();
+      if(path === 'a11y') return renderA11y();
+      if(path === 'collections') return renderCollections(params.get('focus'));
+
+      return renderDocs();
+    }
+
+    function renderDocCard(doc){
+      return `
+        <div class="li" role="button" tabindex="0" data-doc="${h(doc.id)}">
+          <div class="bullet">📄</div>
+          <div>
+            <strong>${h(doc.title)}</strong>
+            <span>${h(doc.desc)}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderDocs(){
+      outlet.innerHTML = `
+        <div class="section-header">
+          <h2>📘 מסמכי בסיס</h2>
+          <div class="mini">סקירה מהירה של המסמכים המרכזיים</div>
+        </div>
+        <div class="grid">
+          <div class="card span-6">
+            <h2>🧠 סקירה</h2>
+            <p>UIUX-CraftVault הוא Vault אחד עם עשרות אוספים, כל אחד עם זהות מוגדרת וכללים ברורים.</p>
+          </div>
+          <div class="card span-6">
+            <h2>🗄️ קונספט</h2>
+            <p><strong>Craft</strong> = דיוק ובנייה מודולרית. <strong>Vault</strong> = כספת מסודרת הניתנת להרחבה.</p>
+          </div>
+        </div>
+        <div style="margin-top:14px;" class="list" id="docsList"></div>
+      `;
+      const list = document.getElementById('docsList');
+      list.innerHTML = DOCS.map(renderDocCard).join('');
+      attachDocCardHandlers(list);
+    }
+
+    function renderStructure(){
+      outlet.innerHTML = `
+        <div class="section-header">
+          <h2>🧱 מבנה המאגר</h2>
+          <div class="mini">סקיילבילי כברירת מחדל</div>
+        </div>
+        <p class="lead" style="margin:0 0 10px;">מבנה מומלץ ל־GitHub Pages ולצמיחה מודולרית.</p>
+        <div class="codeblock"><pre>UIUX-CraftVault/
+├─ README.md
+├─ LICENSE
+├─ docs/                      # קטלוג לתצוגה
+│  ├─ index.html
+│  ├─ catalog.js
+│  └─ catalog.css
+├─ core/                      # ליבה משותפת
+│  ├─ tokens.css
+│  ├─ base.css
+│  └─ ui.js
+└─ collections/
+   ├─ uiux-forge/
+   ├─ uiux-kit/
+   ├─ uiux-blueprints/
+   └─ ...</pre></div>
+        <div class="grid" style="margin-top:14px;">
+          <div class="card span-6">
+            <h2>📁 docs/</h2>
+            <p>אתר ציבורי וקטלוג — תבחרו מה לחשוף.</p>
+          </div>
+          <div class="card span-6">
+            <h2>🧬 core/</h2>
+            <p>טוקנים, בסיס משותף וכלי UI מרכזיים.</p>
+          </div>
+          <div class="card span-12">
+            <h2>🗂️ collections/</h2>
+            <p>כל אוסף עם <code>_identity.md</code>, <code>_starter/</code> ו־<code>templates/</code>.</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderTemplates(){
+      outlet.innerHTML = `
+        <div class="section-header">
+          <h2>🧩 תקן תבניות</h2>
+          <div class="mini">חוזה תיקייה אחיד לכל תבנית</div>
+        </div>
+        <p class="lead" style="margin:0 0 10px;">כל תבנית תחת <code>collections/&lt;collection&gt;/templates/&lt;template-id&gt;/</code>.</p>
+        <div class="codeblock"><pre>index.html
+styles.css
+app.js
+meta.json
+README.md
+preview.png</pre></div>
+        <div class="card" style="margin-top:14px;">
+          <h2>דוגמת meta.json</h2>
+          <div class="codeblock"><pre>{
+  "title": "Admin Dashboard - Neon Panels",
+  "tags": ["dashboard", "sidebar", "cards"],
+  "collection": "uiux-forge",
+  "status": "stable",
+  "viewport": "responsive"
+}</pre></div>
+          <p style="margin:10px 0 0; color:var(--muted);">השתמשו ב־<code>meta.json</code> כדי להזין את הקטלוג.</p>
+        </div>
+      `;
+    }
+
+    function renderWorkflow(){
+      outlet.innerHTML = `
+        <div class="section-header">
+          <h2>🚀 זרימת עבודה מומלצת</h2>
+          <div class="mini">צומחים מהר בלי לאבד סדר</div>
+        </div>
+        <ul class="list">
+          <li class="li"><div class="bullet">1</div><div><strong>בנו ליבה</strong><span>צרו <code>tokens.css</code>, <code>base.css</code>, <code>ui.js</code>.</span></div></li>
+          <li class="li"><div class="bullet">2</div><div><strong>זהות לכל אוסף</strong><span>הוסיפו <code>_identity.md</code> ו־<code>_starter/</code>.</span></div></li>
+          <li class="li"><div class="bullet">3</div><div><strong>תבניות יסוד</strong><span>Login + Dashboard לכל אוסף.</span></div></li>
+          <li class="li"><div class="bullet">4</div><div><strong>אצור קטלוג</strong><span>חשפו רק תבניות מובילות.</span></div></li>
+        </ul>
+        <div class="card" style="margin-top:14px;">
+          <h2>✅ כלל אצבע</h2>
+          <p>סקייל אמיתי מגיע מזהות ברורה וסטנדרט עקבי.</p>
+        </div>
+      `;
+    }
+
+    function renderA11y(){
+      outlet.innerHTML = `
+        <div class="section-header">
+          <h2>♿ נגישות</h2>
+          <div class="mini">Human-first כברירת מחדל</div>
+        </div>
+        <ul class="list">
+          <li class="li"><div class="bullet">⌨️</div><div><strong>מקלדת תחילה</strong><span>טאבים נגישים, Esc סוגר חלונות.</span></div></li>
+          <li class="li"><div class="bullet">🔎</div><div><strong>פוקוס ברור</strong><span>שימוש ב־<code>:focus-visible</code> וניגודיות גבוהה.</span></div></li>
+          <li class="li"><div class="bullet">🧠</div><div><strong>היררכיה קריאה</strong><span>כותרות עקביות ומבנה צפוי.</span></div></li>
+          <li class="li"><div class="bullet">🎚️</div><div><strong>שליטה בתנועה</strong><span>אנימציות עדינות ללא הבהובים.</span></div></li>
+        </ul>
+      `;
+    }
+
+    function renderCollections(focusId){
+      const focus = focusId ? COLLECTIONS.find(c => c.id === focusId) : null;
+      const query = (searchInput.value || '').trim().toLowerCase();
+      const filtered = COLLECTIONS.filter((c) => {
+        const hay = [c.name, c.desc, c.chips.join(' ')].join(' ').toLowerCase();
+        return hay.includes(query);
+      });
+
+      outlet.innerHTML = `
+        <div class="section-header">
+          <h2>🧠 אוספים</h2>
+          <div class="mini">כל אוסף הוא עולם סגנוני עם זהות מלאה</div>
+        </div>
+        ${focus ? `
+          <div class="card" style="margin-bottom:14px;">
+            <h2>${h(focus.emoji + ' ' + focus.name)}</h2>
+            <p>${h(focus.desc)}</p>
+            <div class="chiprow" style="margin-top:12px;">
+              ${focus.chips.map(x => `<span class="chip">${h(x)}</span>`).join('')}
+            </div>
+            <p style="margin-top:12px; color:var(--muted);">הצעד הבא: ליצור <code>collections/${h(focus.id)}/_identity.md</code> + <code>_starter/</code> + תבניות ראשונות.</p>
+          </div>
+        ` : ''}
+        <div class="collection-grid" id="collectionGrid"></div>
+      `;
+
+      const grid = document.getElementById('collectionGrid');
+      filtered.forEach((c) => {
+        const el = document.createElement('button');
+        el.className = 'collection';
+        el.type = 'button';
+        el.setAttribute('aria-label', c.name);
+        el.innerHTML = `
+          <div class="name">${h(c.emoji)} ${h(c.name)}</div>
+          <div class="desc">${h(c.desc)}</div>
+          <div class="chiprow">
+            ${c.chips.map(x => `<span class="chip">${h(x)}</span>`).join('')}
+          </div>
+        `;
+        el.addEventListener('click', () => {
+          location.hash = '#/collections?focus=' + c.id;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        grid.appendChild(el);
+      });
+    }
+
+    function renderDocPage(doc){
+      outlet.innerHTML = `
+        <div class="section-header">
+          <h2>📄 ${h(doc.title)}</h2>
+          <div class="mini">${h(doc.desc)}</div>
+        </div>
+        <div class="card">
+          <p>לחצו על הכפתור כדי לפתוח את המסמך המלא בחלון מודל.</p>
+          <div class="cta-row" style="margin-top:12px;">
+            <button class="btn primary" data-doc-open="${h(doc.id)}">פתיחת מסמך</button>
+            <button class="btn" data-route="#/docs">חזרה למסמכים</button>
+          </div>
+        </div>
+      `;
+
+      const btn = outlet.querySelector('[data-doc-open]');
+      btn.addEventListener('click', () => openDocModal(doc));
+    }
+
+    function attachDocCardHandlers(container){
+      container.querySelectorAll('[data-doc]').forEach((el) => {
+        el.addEventListener('click', () => {
+          const docId = el.getAttribute('data-doc');
+          const doc = DOCS.find((item) => item.id === docId);
+          if(doc) openDocModal(doc);
+        });
+        el.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' '){
+            e.preventDefault();
+            el.click();
+          }
+        });
+      });
+    }
+
+    function renderMarkdown(markdown){
+      const escapeHtml = (str) => str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+      const codeBlocks = [];
+      let text = markdown.replace(/```([\s\S]*?)```/g, (match, code) => {
+        const token = `__CODE_BLOCK_${codeBlocks.length}__`;
+        codeBlocks.push(code);
+        return token;
+      });
+
+      text = escapeHtml(text);
+
+      text = text.replace(/^###\s?(.*)$/gm, '<h3>$1</h3>');
+      text = text.replace(/^##\s?(.*)$/gm, '<h2>$1</h2>');
+      text = text.replace(/^#\s?(.*)$/gm, '<h1>$1</h1>');
+
+      text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+      text = text.split('\n\n').map((block) => {
+        if(block.match(/^<h[1-3]>/)) return block;
+        if(block.trim().startsWith('<ul')) return block;
+        return `<p>${block.replace(/\n/g, '<br />')}</p>`;
+      }).join('');
+
+      text = text.replace(/(?:^|\n)([-*])\s+(.+)(?:\n|$)/g, (match, bullet, item) => {
+        return `\n<li>${item.trim()}</li>\n`;
+      });
+
+      text = text.replace(/(<li>[\s\S]*?<\/li>)/g, (match) => `<ul>${match}</ul>`);
+
+      codeBlocks.forEach((code, idx) => {
+        const safe = escapeHtml(code.trim());
+        text = text.replace(`__CODE_BLOCK_${idx}__`, `<pre><code>${safe}</code></pre>`);
+      });
+
+      return text;
+    }
+
+    async function openDocModal(doc){
+      modalTitle.textContent = doc.title;
+      modalSubtitle.textContent = doc.file;
+      modalBody.innerHTML = '<p>טוען את המסמך...</p>';
+      setModal(true);
+      try{
+        const response = await fetch(doc.file);
+        const text = await response.text();
+        modalBody.innerHTML = renderMarkdown(text);
+      }catch(error){
+        modalBody.innerHTML = '<p>לא ניתן לטעון את המסמך כרגע.</p>';
+      }
+    }
+
+    document.querySelectorAll('[data-route]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        location.hash = btn.getAttribute('data-route');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    function updateFooter(){
+      const sitemap = document.getElementById('footerSitemap');
+      sitemap.innerHTML = PAGES.map((p) => `<a href="#/${p.id}">${h(p.title)}</a>`).join('');
+      const docLinks = document.getElementById('footerDocs');
+      docLinks.innerHTML = DOCS.slice(0, 6).map((doc) => `<a href="#/${doc.id}">${h(doc.title)}</a>`).join('');
+    }
+
+    searchInput.addEventListener('input', () => {
+      if(location.hash.startsWith('#/collections')){
+        renderCollections(new URLSearchParams((location.hash.split('?')[1] || '')).get('focus'));
+      }
+    });
+
+    renderNav();
+    updateFooter();
+    window.addEventListener('hashchange', () => { route(); setDrawer(false); });
+    if(!location.hash) location.hash = '#/docs';
+    route();
+
+    document.getElementById('metaPill').textContent = '📅 16 Jan 2026 • 🕒 05:09';
+    document.getElementById('footerMeta').textContent = 'תאריך עברי: כ״ז טבת תשפ״ו';
+    document.getElementById('versionPill').textContent = `גרסה ${VERSION}`;
+  </script>
+</body>
+</html>

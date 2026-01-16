@@ -4,7 +4,7 @@
 
 ---
 
-## 🧠 Overview
+## 🧠 סקירה כללית
 
 **UIUX-CraftVault** הוא מאגר־על לשלדי UI/UX ותבניות ממשק מוכנות לשימוש, הבנויות ב־**HTML / CSS / JavaScript** טהור.
 
@@ -12,7 +12,7 @@
 
 ---
 
-## 🗂️ CraftVault Concept
+## 🗂️ רעיון CraftVault
 
 **CraftVault = Craft + Vault**
 
@@ -25,15 +25,15 @@
 
 ---
 
-## 🗓️ Metadata
+## 🗓️ מטא־דאטה
 
-* **Gregorian Date:** 16 January 2026
-* **Hebrew Date:** כ״ז טבת תשפ״ו
-* **Time:** 05:09 (Asia/Jerusalem)
+* **תאריך גרגוריאני:** 16 January 2026
+* **תאריך עברי:** כ״ז טבת תשפ״ו
+* **שעה:** 05:09 (Asia/Jerusalem)
 
 ---
 
-## 🎯 Goals
+## 🎯 מטרות
 
 * 🧱 לספק **שלדי ממשק מוכנים** לפיתוח מהיר
 * 🎨 לאפשר **סגנונות שונים** ללא כאוס
@@ -43,7 +43,7 @@
 
 ---
 
-## 🧱 Repository Structure (Scalable by Design)
+## 🧱 מבנה מאגר (סקיילבילי כברירת מחדל)
 
 ```
 UIUX-CraftVault/
@@ -88,7 +88,7 @@ UIUX-CraftVault/
 
 ---
 
-## 🎭 Collections Philosophy
+## 🎭 פילוסופיית אוספים
 
 כל תיקייה תחת `collections/` מייצגת **אוסף עצמאי**.
 
@@ -109,7 +109,7 @@ collections/uiux-forge/
 
 ---
 
-## 🎨 Collection Identity Standard
+## 🎨 תקן זהות אוסף
 
 בכל `_identity.md` מוגדרים חוקי האוסף:
 
@@ -122,7 +122,7 @@ collections/uiux-forge/
 
 ---
 
-## 🧠 Collection Personalities (No Overlap)
+## 🧠 אישיות אוספים (ללא חפיפה)
 
 * 🔨 **UIUX-Forge** — Industrial, Panels, Shadows
 * 🧰 **UIUX-Kit** — Utility, Copy/Paste Components
@@ -140,7 +140,7 @@ collections/uiux-forge/
 
 ---
 
-## 🧩 Template Standard
+## 🧩 תקן תבניות
 
 כל Template יושב ב:
 `collections/<collection>/templates/<template-id>/`
@@ -154,7 +154,7 @@ README.md
 preview.png
 ```
 
-### meta.json example
+### דוגמת meta.json
 
 ```json
 {
@@ -168,14 +168,14 @@ preview.png
 
 ---
 
-## 🌐 Live Catalog (Docs)
+## 🌐 קטלוג חי (Docs)
 
 הקטלוג (`docs/`) מציג תבניות נבחרות בלבד —
 שליטה מלאה במה ציבורי ומה ניסיוני.
 
 ---
 
-## 🚀 Recommended Workflow
+## 🚀 זרימת עבודה מומלצת
 
 1. 🧱 בנה `core/` בסיסי
 2. 🧬 צור `_identity.md` + `_starter/` לכל אוסף
@@ -184,13 +184,13 @@ preview.png
 
 ---
 
-## 🔢 Product Measures
+## 🔢 מדדי מוצר
 
 **12 מידות מוצר:** בהירות, עקביות, פשטות, זרימה, נגישות, מהירות, אמינות, יופי, סדר, גמישות, סקייל, תחזוקה.
 
 ---
 
-## 📜 Closing Quote
+## 📜 ציטוט סיום
 
 "כָּל מַעֲשֶׂיךָ יִהְיוּ לְשֵׁם שָׁמַיִם" (אבות ב׳, יב)
 
